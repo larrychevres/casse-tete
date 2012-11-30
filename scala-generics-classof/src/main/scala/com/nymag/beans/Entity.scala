@@ -27,8 +27,14 @@ abstract class Entity[T <: AnyRef : ClassManifest] {
     server.shutdown()
     
     // Map results to list of beans
-    //FIXME: Use non-deprecated approach
+    /*
+     * FIXME: Use non-deprecated approach
+     * Why can't we do:
+     * val beans = rsp.getBeans(classOf[T])
+     */
     val beans = rsp.getBeans(classManifest[T].erasure)
+    
+    // 
     
     // return as sequence
     JavaConversions.asScalaBuffer(beans).asInstanceOf[Seq[T]]
