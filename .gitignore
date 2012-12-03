@@ -2,6 +2,7 @@
 .classpath
 .settings
 .cache
+.target
 bin
 project
 target

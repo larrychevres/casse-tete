@@ -1,0 +1,24 @@
+@(personForm : Form[models.Person], addressForm : Form[models.Address])
+
+@import helper._
+@import helper.twitterBootstrap._
+
+<link rel="stylesheet" type="text/css" media="screen"
+     href='@routes.Assets.at("stylesheets/bootstrap.css")'>
+
+<div style="padding-left:10px">
+<h1>Person Form</h1>
+@form(routes.Application.savePerson, 'id -> "personForm") {
+  @inputText(personForm("name"))
+  @inputText(personForm("surname"))
+  <input type="submit" value="Save">
+}
+
+<h1>Address Form</h1>
+@form(routes.Application.saveAddress, 'id -> "addressForm") {
+  @inputText(addressForm("city"), 'id -> "city", '_label -> "The City (custom label)", 'size -> 30)
+  @inputText(addressForm("country"))
+  <input type="submit" value="Save">
+}
+
+</div>
