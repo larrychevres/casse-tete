@@ -1,0 +1,80 @@
+@(message: String)
+
+@import helper._
+@import controllers.routes.javascript._
+
+@main("AJAX") {
+
+  <script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
+
+  <h1>Calculator</h1>
+  (Use integers only, don't be a jerk.)
+  <br/>
+  <input type='text' id='num1'/>
+  <br/>
+  <input type='text' id='num2'/>
+  <br/>
+  
+  <input type='button' value='Add' id='addBtn' /> 
+  <input type='button' value='Subtract' id='subtractBtn' />
+  <br />
+  <div id="calcResult"></div>
+  
+  <br/><br/>
+  <h1>Person</h1>
+  <input type='text' id='name'/>
+  <br/>
+  <input type='text' id='surname'/>
+  <br/>
+  <input type='button' value='echo' id='echo' />
+  <div id="echoRsp" ></div>
+
+  <script type="text/javascript" charset="utf-8">
+    var add = function() {
+      var num1 = $('#num1').val();
+      var num2 = $('#num2').val();
+
+      jsRoutes.controllers.Calculator.add(num1, num2).ajax({
+        success: function(data) {
+          $("#calcResult").html(data);
+        },
+        error: function() {
+          alert("Error!")
+        }
+      })
+    };
+
+    var subtract = function() {
+      var num1 = $('#num1').val();
+      var num2 = $('#num2').val();
+
+      jsRoutes.controllers.Calculator.subtract(num1, num2).ajax({
+        success: function(data) {
+          $("#calcResult").html(data);
+        },
+        error: function() {
+          alert("Error!")
+        }
+      })
+    };
+    
+    var echo = function() {
+        var name = $('#name').val();
+        var surname = $('#surname').val();
+
+        jsRoutes.controllers.Persons.echo(name, surname).ajax({
+          success: function(data) {
+            $("#echoRsp").html(data);
+          },
+          error: function() {
+            alert("Error!")
+          }
+        })
+      };
+
+    $('#addBtn').click(add);
+    $('#subtractBtn').click(subtract);
+    $('#echo').click(echo);
+  </script>
+
+}
