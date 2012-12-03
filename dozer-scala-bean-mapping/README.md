@@ -9,4 +9,8 @@ Mapping from a Map to a Bean fails when the Bean is implemented in Scala.
 
 ## Where
 Look at the Map to Bean mapping in Application.java. There is one for a Java Bean and another for the equivalent Scala Bean.
-The Mapping is successful when we use the Java Bean but not when we use the Scala Bean. 
+The Mapping is successful when we use the Java Bean but not when we use the Scala Bean.
+
+## Note
+Could only reproduce this problem in Play (with Scala 2.10).  
+Neither mapping worked when implementing in a Scala Project with Scala 2.9.1 
