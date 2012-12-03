@@ -1,9 +1,9 @@
 # HashMap to Bean Mapping with Dozer in Scala
-
+  
+  
 
 ## Introduction
-"Dozer is a Java Bean to Java Bean mapper that recursively copies data from one object to another. Typically, these Java Beans will be of different complex types."
-http://dozer.sourceforge.net/
+"Dozer is a Java Bean to Java Bean mapper that recursively copies data from one object to another." - http://dozer.sourceforge.net
 
 ## Problem
 Mapping from a Map to a Bean fails when the Bean is implemented in Scala.
