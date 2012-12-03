@@ -1,7 +1,6 @@
-# HashMap to Bean Mapping with Dozer in Scala
+# Map to Bean Mapping with Dozer in Scala
   
   
-
 ## Introduction
 "Dozer is a Java Bean to Java Bean mapper that recursively copies data from one object to another." - http://dozer.sourceforge.net
 
